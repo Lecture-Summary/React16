@@ -45,3 +45,21 @@ Fragment를 빼면 Fragment를 import 하지 않아도 됨.
 string도 return 가능하다.
 
 그런데 string은 많이 사용 안함
+
+## portals
+
+portals는 react root 밖에 react를 넣을 수 있게 해준다.
+
+react root: index.html 의 <div id="root" > 부분
+
+portal은 react-dom 안에 있다
+
+    import { createPortal } from "react-dom";
+
+    class Portals extends Component {
+        render() {
+            return createPortal(<Message />, document.getElementById("touchme"));
+        }
+    }
+
+이런식으로 react에서 react 밖을 터치가 가능하다.
