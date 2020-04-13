@@ -63,3 +63,31 @@ portal은 react-dom 안에 있다
     }
 
 이런식으로 react에서 react 밖을 터치가 가능하다.
+
+## Error Boundaries
+
+    class App extends Component {
+        state = {
+            hasError: false,
+        };
+
+        componentDidCatch = (error, info) => {
+            console.log(`catched ${error} the info i have is ${JSON.stringify(info)}`);
+            this.setState({
+            hasError: true,
+            });
+        };
+
+        render() {
+            const { hasError } = this.state;
+            return (
+            <Fragment>
+                <ReturnTypes />
+                <Portals />
+                {hasError ? <ErrorFallback /> : <ErrorMaker />}
+            </Fragment>
+            );
+        }
+    }
+
+componentDidCatch로 에러를 찾을 수 있고 이를 이용하여 에러가 발생했으면 그 컴포넌트만 나오지 않게하고 다른 컴포넌트들은 정삭적으로 작동되게 해, 앱이 더 프로페셔널하게 보임.
