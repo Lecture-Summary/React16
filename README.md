@@ -91,3 +91,11 @@ portal은 react-dom 안에 있다
     }
 
 componentDidCatch로 에러를 찾을 수 있고 이를 이용하여 에러가 발생했으면 그 컴포넌트만 나오지 않게하고 다른 컴포넌트들은 정삭적으로 작동되게 해, 앱이 더 프로페셔널하게 보임.
+
+## this setStatenull
+
+리턴 null을 해서 set state를 죽이지 않고 state를 교체한다.
+
+업데이트를 하지 않는다. 이전엔 리턴 null을 하면 state를 바꿨다.
+
+하지만 이제는 state를 업데이트 하지도, 컴포넌트를 업데이트하지 않는다.
